@@ -3,6 +3,29 @@ package edu.pasadena.cs.cs03b;
 import java.util.Arrays;
 
 public class Cipher {
+
+    // Method to arrange the key
+    public int[] arrangeKey(String key) {
+        // Split the key into an array and sort it
+        String[] keys = key.split("");
+        Arrays.sort(keys);
+        int[] num = new int[key.length()];
+        boolean[] assigned = new boolean[key.length()]; // Array to keep track of assigned positions
+
+        // Map each character in the original key to its position in the sorted key
+        for (int x = 0; x < keys.length; x++) {
+            for (int y = 0; y < key.length(); y++) {
+                if (keys[x].equals(key.charAt(y) + "") && !assigned[y]) {
+                    num[y] = x;
+                    assigned[y] = true; // Mark this position as assigned
+                    break;
+                }
+            }
+        }
+
+        return num; // Return the arranged key
+    }
+
     // Method to encrypt plaintext using columnar transposition cipher
     public String columnarTranspositionCipher(String plaintext, String key) {
         // Arrange the key
@@ -36,29 +59,7 @@ public class Cipher {
             }
         }
 
-        return ciphertext;
-    }
-
-    // Method to arrange the key
-    public int[] arrangeKey(String key) {
-        // Split the key into an array and sort it
-        String[] keys = key.split("");
-        Arrays.sort(keys);
-        int[] num = new int[key.length()];
-        boolean[] assigned = new boolean[key.length()]; // Array to keep track of assigned positions
-
-        // Map each character in the original key to its position in the sorted key
-        for (int x = 0; x < keys.length; x++) {
-            for (int y = 0; y < key.length(); y++) {
-                if (keys[x].equals(key.charAt(y) + "") && !assigned[y]) {
-                    num[y] = x;
-                    assigned[y] = true; // Mark this position as assigned
-                    break;
-                }
-            }
-        }
-
-        return num;
+        return ciphertext; // Return the encrypted text
     }
 
     // Method to decrypt ciphertext using columnar transposition cipher
@@ -98,7 +99,7 @@ public class Cipher {
             }
         }
 
-        return plaintext;
+        return plaintext; // Return the decrypted text
     }
 
 }
