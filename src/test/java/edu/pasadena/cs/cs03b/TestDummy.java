@@ -10,16 +10,22 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.io.*;
 
 public class TestDummy {
+  @Test
+    public void testEncryptionAndDecryption() {
+        String plaintext = "HELLO";
+        String key1 = "12345";
+        String key2 = "67890";
 
-   @Test
-   public void testDummy()
-   {
-     // action
-     int iResult = Dummy.dummy();
-     // assertion
-     assertEquals(0, iResult);
+        Cipher cipher = new Cipher();
+        DoubleCipher doubleCipher = new DoubleCipher(cipher);
 
-     // TODO: add your own test cases
+        String ciphertext = cipher.columnarTranspositionCipher(plaintext, key1);
+        String doubleCiphertext = doubleCipher.doubleTranspositionCipher(plaintext, key1, key2);
 
-   }
+        String decryptedText = cipher.columnarTranspositionDecipher(ciphertext, key1);
+        String doubleDecryptedText = doubleCipher.doubleTranspositionDecipher(doubleCiphertext, key1, key2);
+
+        assertEquals(plaintext, decryptedText);
+        assertEquals(plaintext, doubleDecryptedText);
+    }
 }

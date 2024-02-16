@@ -61,10 +61,7 @@ public class main {
 		String doubleDecryptedText = doubleCipher.doubleTranspositionDecipher(doubleCiphertext, key1, key2);
 		System.out.println(" \n The double decrypted message is: " + doubleDecryptedText + "\n");
 
-		// Create an instance of the BruteForceAttack class
         BruteForceAttack bruteForceAttack = new BruteForceAttack(cipher, doubleCipher);
-
-        // Call the bruteForceAttack method
         bruteForceAttack.bruteForceAttack(plaintext, ciphertext, keyLength1);
 	}
 }
