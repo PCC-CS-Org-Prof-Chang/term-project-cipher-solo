@@ -1,8 +1,5 @@
 package edu.pasadena.cs.cs03b;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class KnownPlaintextAttack {
     private Cipher cipher;
 
