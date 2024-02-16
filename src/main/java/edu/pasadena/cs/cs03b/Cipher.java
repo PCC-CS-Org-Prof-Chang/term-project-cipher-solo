@@ -40,7 +40,7 @@ public class Cipher {
     }
 
     // Method to arrange the key
-    private int[] arrangeKey(String key) {
+    public int[] arrangeKey(String key) {
         // Split the key into an array and sort it
         String[] keys = key.split("");
         Arrays.sort(keys);
