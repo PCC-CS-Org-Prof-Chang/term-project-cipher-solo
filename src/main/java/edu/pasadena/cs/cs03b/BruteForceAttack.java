@@ -47,7 +47,6 @@ public class BruteForceAttack {
                 System.out.println("Brute force has worked. Decrypted text is: " + decryptedText);
                 System.out.println("Number of attempts: " + attempts);
                 System.out.println("Time taken: " + duration + " milliseconds");
-                System.out.println("Key found: " + key1); // Print the key that successfully decrypted the ciphertext
                 return;
             }
         }
