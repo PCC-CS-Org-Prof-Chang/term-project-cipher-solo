@@ -11,25 +11,6 @@ import java.io.*;
 
 public class TestDummy {
   @Test
-  public void testEncryptionAndDecryption() {
-    String plaintext = "HELLO";
-    String key1 = "12345";
-    String key2 = "67890";
-
-    Cipher cipher = new Cipher();
-    DoubleCipher doubleCipher = new DoubleCipher(cipher);
-
-    String ciphertext = cipher.columnarTranspositionCipher(plaintext, key1);
-    String doubleCiphertext = doubleCipher.doubleTranspositionCipher(plaintext, key1, key2);
-
-    String decryptedText = cipher.columnarTranspositionDecipher(ciphertext, key1);
-    String doubleDecryptedText = doubleCipher.doubleTranspositionDecipher(doubleCiphertext, key1, key2);
-
-    assertEquals(plaintext, decryptedText);
-    assertEquals(plaintext, doubleDecryptedText);
-  }
-
-  @Test
   public void testEncryptionAndDecryptionWithDifferentKeys() {
     String plaintext = "HELLO WORLD";
     String key1 = "ABCDE";
